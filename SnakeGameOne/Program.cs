@@ -1,6 +1,7 @@
 ﻿using SnakeGameOne.ClaseCell;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
@@ -10,7 +11,9 @@ namespace SnakeGameOne
 {
     class Program
     {
-        static readonly int gridW = 90;
+        interface Container
+        {
+            static readonly int gridW = 90;
         static readonly int gridH = 25;
         static Cell[,] grid = new Cell[gridH, gridW];
         static Cell currentCell;
@@ -21,7 +24,12 @@ namespace SnakeGameOne
         static bool Populated = false;
         static bool Lost = false;
         static int snakeLength;
-        static void Main(string[] args)
+        }
+        
+
+        class Contenedor : Container 
+        {
+         static void Main(string[] args)
         {
             if (!Populated)
             {
@@ -272,5 +280,8 @@ namespace SnakeGameOne
             }
             Console.WriteLine(toPrint);
         }
+        }
+        
+       
     }
 }
