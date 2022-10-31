@@ -41,7 +41,7 @@ namespace SnakeGameOne
             }
         }
 
-        static void Restart()
+        static private void Restart()
         {
             Console.SetCursorPosition(0, 0);
             printGrid();
@@ -49,14 +49,14 @@ namespace SnakeGameOne
             getInput();
         }
 
-        static void updateScreen()
+        static private void updateScreen()
         {
             Console.SetCursorPosition(0, 0);
             printGrid();
             Console.WriteLine("Length: {0}", snakeLength);
         }
 
-        static void getInput()
+        static private void getInput()
         {
 
             //Console.Write("Where to move? [WASD] ");
@@ -70,7 +70,7 @@ namespace SnakeGameOne
             doInput(input.KeyChar);
         }
 
-        static void checkCell(Cell cell)
+        static public void checkCell(Cell cell)
         {
             if (cell.val == "%")
             {
@@ -82,7 +82,7 @@ namespace SnakeGameOne
             }
         }
 
-        static void Lose()
+        static private void Lose()
         {
             Console.WriteLine("\n You lose!");
             Thread.Sleep(1000);
@@ -90,7 +90,7 @@ namespace SnakeGameOne
             Environment.Exit(-1);
         }
 
-        static void doInput(char inp)
+        static public void doInput(char inp)
         {
             switch (inp)
             {
@@ -109,7 +109,7 @@ namespace SnakeGameOne
             }
         }
 
-        static void addFood()
+        static public void addFood()
         {
             Random r = new Random();
             Cell cell;
@@ -122,41 +122,41 @@ namespace SnakeGameOne
             }
         }
 
-        static void eatFood()
+        static private void eatFood()
         {
             snakeLength += 1;
             addFood();
         }
 
-        static void goUp()
+        static private void goUp()
         {
             if (direction == 2)
                 return;
             direction = 0;
         }
 
-        static void goRight()
+        static private void goRight()
         {
             if (direction == 3)
                 return;
             direction = 1;
         }
 
-        static void goDown()
+        static private void goDown()
         {
             if (direction == 0)
                 return;
             direction = 2;
         }
 
-        static void goLeft()
+        static private void goLeft()
         {
             if (direction == 1)
                 return;
             direction = 3;
         }
 
-        static void Move()
+        static private void Move()
         {
             if (direction == 0)
             {
@@ -201,7 +201,7 @@ namespace SnakeGameOne
             Thread.Sleep(speed * 100);
         }
 
-        static void visitCell(Cell cell)
+        static private void visitCell(Cell cell)
         {
             currentCell.val = "#";
             currentCell.visited = true;
@@ -213,7 +213,7 @@ namespace SnakeGameOne
             //checkCell(currentCell);
         }
 
-        static void updatePos()
+        static private void updatePos()
         {
 
             currentCell.Set("@");
@@ -238,7 +238,7 @@ namespace SnakeGameOne
             return;
         }
 
-        static void populateGrid()
+        static private void populateGrid()
         {
             Random random = new Random();
             for (int col = 0; col < gridH; col++)
@@ -258,7 +258,7 @@ namespace SnakeGameOne
             }
         }
 
-        static void printGrid()
+        static private void printGrid()
         {
             string toPrint = "";
             for (int col = 0; col < gridH; col++)
