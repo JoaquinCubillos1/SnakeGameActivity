@@ -51,5 +51,6 @@ namespace SnakeGameOne.ClaseCell
         {
             val = newVal;
         }
+
     }
 }

@@ -21,7 +21,6 @@ namespace SnakeGameOne
         static bool Populated = false;
         static bool Lost = false;
         static int snakeLength;
-
         static void Main(string[] args)
         {
             if (!Populated)
